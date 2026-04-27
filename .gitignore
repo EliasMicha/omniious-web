@@ -1,0 +1,13 @@
+*.local
+*.log
+.DS_Store
+.env
+.env.development.local
+.env.local
+.env.production.local
+.vercel
+.vite
+dist
+dist-ssr
+node_modules
+node_modules/
