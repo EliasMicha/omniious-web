@@ -7,7 +7,7 @@
   --ink-mute: #7A7264;
   --line: #C9BFAC;
   --accent: #8B7355;
-  --sans: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --sans: 'Sora', system-ui, -apple-system, sans-serif;
   --serif: 'Instrument Serif', Georgia, serif;
 }
 
@@ -98,11 +98,14 @@ nav.site-nav ul a.active::after { width: 100%; }
 .hero-title .line:nth-child(2) { animation-delay: .35s; padding-left: 7vw; }
 .hero-title .line:nth-child(3) {
   animation-delay: .55s;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink-soft);
-  letter-spacing: -.015em;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  background: linear-gradient(120deg, var(--ink) 0%, #5a4a3a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 @keyframes riseIn { to { opacity: 1; transform: translateY(0); } }
 
