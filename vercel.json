@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/((?!assets|favicon\\.svg).*)", "destination": "/index.html" }
+    { "source": "/((?!assets|favicon\\.svg|sitemap\\.xml|robots\\.txt|og-default\\.jpg).*)", "destination": "/index.html" }
   ]
 }
