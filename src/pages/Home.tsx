@@ -2,9 +2,9 @@ import Nav from '../components/Nav';
 import Ficha from '../components/Ficha';
 import Hero from '../components/Hero';
 import Disciplinas from '../components/Disciplinas';
+import LutronBand from '../components/LutronBand';
 import Nosotros from '../components/Nosotros';
 import Proyectos from '../components/Proyectos';
-import Marcas from '../components/Marcas';
 import Clientes from '../components/Clientes';
 import Contacto from '../components/Contacto';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -15,16 +15,16 @@ export default function Home() {
     <>
       <Seo
         title="OMNIIOUS — Arquitectura, Ingeniería e Instalaciones"
-        description="Iluminación arquitectónica, ingeniería eléctrica e instalaciones especiales bajo un solo equipo. Diseñamos, instalamos, construimos. Ciudad de México."
+        description="Iluminación, ingeniería eléctrica e instalaciones especiales bajo un solo equipo. Llave en mano para arquitectos y constructores en Ciudad de México."
         path="/"
       />
       <Nav />
       <Ficha />
       <Hero />
       <Disciplinas />
+      <LutronBand />
       <Nosotros />
       <Proyectos />
-      <Marcas />
       <Clientes />
       <Contacto />
       <WhatsAppButton />

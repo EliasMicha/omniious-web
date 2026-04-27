@@ -10,11 +10,11 @@ export default function Hero() {
       <div className="hero-bottom">
         <div>
           <div className="tag">01 — Práctica</div>
-          <p>Iluminación arquitectónica, ingeniería eléctrica e instalaciones especiales — bajo un mismo equipo, coordinadas con tu obra desde el día uno.</p>
+          <p>Iluminación, ingeniería eléctrica e instalaciones especiales bajo un solo equipo. Llave en mano, o por disciplina.</p>
         </div>
         <div>
-          <div className="tag">02 — Método</div>
-          <p>Del concepto a la puesta en marcha. Diseño, suministro y ejecución sin intermediarios. Una sola conversación, un solo responsable.</p>
+          <div className="tag">02 — Postura</div>
+          <p>Una instalación bien hecha se siente, aunque no se vea. Eso es lo que perseguimos en cada obra.</p>
         </div>
         <div className="scroll">
           <span>Ver disciplinas</span>

@@ -493,9 +493,9 @@ footer.site-footer {
 
 /* ============ DISCIPLINE LANDING ============ */
 .discipline-hero {
-  min-height: 78vh;
-  padding: 40px 48px 60px;
-  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 70vh;
+  padding: 40px 48px 80px;
+  display: flex; flex-direction: column; justify-content: center;
 }
 .discipline-eyebrow {
   font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
@@ -721,6 +721,441 @@ footer.site-footer {
   font-size: 13px;
 }
 
+/* ============ DUAL BLOCK (Diseño + Implementación) ============ */
+.dual-block {
+  padding: 100px 48px;
+  border-top: 1px solid var(--line);
+}
+.dual-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.dual-col {
+  padding: 0 48px 0 0;
+}
+.dual-col + .dual-col {
+  padding: 0 0 0 48px;
+  border-left: 1px solid var(--line);
+}
+.dual-eyebrow {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 500;
+  margin-bottom: 16px;
+}
+.dual-title {
+  font-family: var(--sans);
+  font-size: clamp(28px, 3.4vw, 56px);
+  font-weight: 300; line-height: 1; letter-spacing: -.025em;
+  margin-bottom: 36px;
+  font-variation-settings: "opsz" 48;
+}
+.dual-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.dual-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+}
+.dual-list li {
+  display: grid; grid-template-columns: 32px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.dual-list li .idx {
+  font-size: 10px; letter-spacing: .22em; font-weight: 500;
+  color: var(--ink-mute); padding-top: 4px;
+}
+.dual-list li .nm {
+  font-family: var(--sans);
+  font-size: 17px; font-weight: 400;
+  letter-spacing: -.012em;
+  margin-bottom: 4px;
+}
+.dual-list li .ds {
+  font-size: 13px; line-height: 1.55;
+  color: var(--ink-soft);
+}
+.dual-foot {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  max-width: 720px;
+}
+
+/* ============ SYSTEMS BLOCK (Especiales — 9 sistemas) ============ */
+.systems-block {
+  padding: 100px 48px;
+  border-top: 1px solid var(--line);
+}
+.systems-list {
+  display: flex; flex-direction: column;
+  margin-top: 16px;
+}
+.system-row {
+  display: grid;
+  grid-template-columns: 60px 1.2fr 1.4fr 2fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.system-row:last-child { border-bottom: 1px solid var(--line); }
+.sys-idx {
+  font-size: 10px; letter-spacing: .22em;
+  color: var(--ink-mute); font-weight: 500; padding-top: 4px;
+}
+.sys-name {
+  font-family: var(--sans);
+  font-size: 22px; font-weight: 400;
+  letter-spacing: -.018em;
+}
+.sys-brands {
+  font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; line-height: 1.7;
+  color: var(--ink-mute); padding-top: 6px;
+  font-weight: 500;
+}
+.sys-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-soft);
+}
+.sys-hl {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ink); font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+.sys-hl:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ============ TIPOLOGÍAS ============ */
+.typologies-block { padding: 80px 48px; border-top: 1px solid var(--line); }
+.typo-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+}
+.typo-card {
+  padding: 28px 20px;
+  font-family: var(--sans);
+  font-size: 16px; font-weight: 400;
+  letter-spacing: -.012em;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.typo-card:last-child { border-right: none; }
+
+/* ============ BRANDS BLURB ============ */
+.brands-blurb {
+  padding: 60px 48px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.brands-blurb p {
+  font-family: var(--serif);
+  font-size: 22px; line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 880px;
+  font-style: italic;
+  letter-spacing: -.01em;
+}
+
+/* ============ LUTRON BAND (home) ============ */
+.lutron-band-section { padding: 0 48px; }
+.lutron-band {
+  display: grid; grid-template-columns: 1.5fr auto;
+  gap: 40px; align-items: center;
+  padding: 56px 48px;
+  background: var(--ink); color: var(--cream);
+  margin: 60px 0 100px;
+}
+.band-eye {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(237,230,218,.5); font-weight: 500;
+  margin-bottom: 14px;
+}
+.band-title {
+  font-family: var(--sans);
+  font-size: clamp(26px, 3.2vw, 48px);
+  font-weight: 300; letter-spacing: -.025em; line-height: 1.1;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 48;
+}
+.lutron-band p {
+  font-size: 14px; line-height: 1.6;
+  color: rgba(237,230,218,.75);
+  max-width: 540px;
+}
+.band-link {
+  font-family: var(--sans);
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 500; color: var(--cream);
+  text-decoration: none;
+  padding: 16px 28px;
+  border: 1px solid rgba(237,230,218,.3);
+  white-space: nowrap;
+  transition: all .3s ease;
+}
+.band-link:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+/* ============ /lutron PAGE ============ */
+.lutron-intro {
+  padding: 80px 48px;
+  border-top: 1px solid var(--line);
+}
+.lutron-intro-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.lutron-intro-lead {
+  font-family: var(--sans);
+  font-size: clamp(22px, 2.6vw, 38px);
+  font-weight: 300; letter-spacing: -.022em; line-height: 1.2;
+  font-variation-settings: "opsz" 48;
+}
+.lutron-intro-lead em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.lutron-intro-detail p {
+  font-size: 15px; line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  max-width: 480px;
+}
+
+.lutron-lines-block { padding: 100px 48px; border-top: 1px solid var(--line); }
+.lutron-lines-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 16px;
+}
+.lutron-line-card {
+  background: var(--cream);
+  padding: 36px 28px;
+  display: flex; flex-direction: column;
+  min-height: 280px;
+}
+.ll-num {
+  font-size: 10px; letter-spacing: .22em; font-weight: 500;
+  color: var(--ink-mute); margin-bottom: 24px;
+}
+.ll-name {
+  font-family: var(--sans);
+  font-size: 28px; font-weight: 400;
+  letter-spacing: -.022em; line-height: 1.05;
+  margin-bottom: 4px;
+}
+.ll-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.ll-desc {
+  font-size: 13px; line-height: 1.6;
+  color: var(--ink-soft);
+  flex: 1;
+}
+.ll-fit {
+  font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-weight: 500;
+}
+
+.lutron-services-block { padding: 100px 48px; border-top: 1px solid var(--line); }
+.lutron-services-list {
+  display: flex; flex-direction: column;
+  margin-top: 16px;
+}
+.lutron-service-row {
+  display: grid; grid-template-columns: 50px 1.4fr 2fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.lutron-service-row:last-child { border-bottom: 1px solid var(--line); }
+.ls-idx {
+  font-size: 10px; letter-spacing: .22em;
+  color: var(--ink-mute); font-weight: 500; padding-top: 4px;
+}
+.ls-name {
+  font-family: var(--sans);
+  font-size: 20px; font-weight: 400;
+  letter-spacing: -.015em;
+}
+.ls-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.lutron-why { padding: 100px 48px; border-top: 1px solid var(--line); background: var(--cream-dark); }
+.lutron-why-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px; margin-top: 16px;
+}
+.lwhy-card {
+  background: var(--cream);
+  padding: 36px 32px;
+  border: 1px solid var(--line);
+}
+.lwhy-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+.lwhy-title {
+  font-family: var(--sans);
+  font-size: 22px; font-weight: 400;
+  letter-spacing: -.018em;
+  margin-bottom: 12px;
+}
+.lwhy-card p {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ============ /llave-en-mano PAGE ============ */
+.llave-reasons { padding: 100px 48px; border-top: 1px solid var(--line); }
+.llave-reasons-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+}
+.llave-reason {
+  padding: 40px 36px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--cream-light);
+}
+.llave-reason:nth-child(2n) { border-right: none; }
+.llave-reason:nth-last-child(-n+2) { border-bottom: none; }
+.lr-num {
+  font-size: 10px; letter-spacing: .22em; font-weight: 500;
+  color: var(--ink-mute); margin-bottom: 18px;
+}
+.lr-title {
+  font-family: var(--sans);
+  font-size: 22px; font-weight: 400;
+  letter-spacing: -.018em; line-height: 1.2;
+  margin-bottom: 14px;
+}
+.lr-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 380px;
+}
+
+.llave-disciplines { padding: 100px 48px; border-top: 1px solid var(--line); background: var(--cream-dark); }
+.llave-disc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.llave-disc {
+  display: flex; flex-direction: column;
+  padding: 36px 28px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  text-decoration: none; color: var(--ink);
+  transition: all .4s ease;
+  min-height: 240px;
+}
+.llave-disc:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.llave-disc:hover p { color: rgba(237,230,218,.8); }
+.llave-disc:hover .ld-num { color: rgba(237,230,218,.6); }
+.ld-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 26px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+.ld-name {
+  font-family: var(--sans);
+  font-size: 26px; font-weight: 400;
+  letter-spacing: -.022em; line-height: 1.05;
+  margin-bottom: 14px;
+}
+.llave-disc p {
+  font-size: 13px; line-height: 1.6;
+  color: var(--ink-soft);
+  flex: 1;
+  margin-bottom: 24px;
+}
+.ld-arrow {
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 500;
+}
+
+.llave-lutron-band {
+  display: grid; grid-template-columns: 1.5fr auto;
+  gap: 40px; align-items: center;
+  padding: 40px 36px;
+  background: var(--ink); color: var(--cream);
+  margin-top: 32px;
+}
+.llave-lutron-band p {
+  font-size: 13px; line-height: 1.6;
+  color: rgba(237,230,218,.75);
+  max-width: 540px;
+}
+
+.llave-process { padding: 100px 48px; border-top: 1px solid var(--line); }
+.llave-steps {
+  display: flex; flex-direction: column;
+  margin-top: 16px;
+}
+.llave-step {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.llave-step:last-child { border-bottom: 1px solid var(--line); }
+.ls-num-roman {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--ink-soft);
+}
+.ls-name {
+  font-family: var(--sans);
+  font-size: 22px; font-weight: 400;
+  letter-spacing: -.018em;
+  margin-bottom: 8px;
+}
+.ls-desc {
+  font-size: 14px; line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 720px;
+}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
   nav.site-nav { padding: 20px 24px; }
@@ -753,6 +1188,31 @@ footer.site-footer {
   .service-row { grid-template-columns: 50px 1fr; }
   .service-row .ds { grid-column: 2; padding-top: 8px; }
   .service-row:nth-child(odd) { border-right: none; }
+  .dual-block, .systems-block, .lutron-intro, .lutron-lines-block,
+  .lutron-services-block, .lutron-why, .llave-reasons, .llave-disciplines,
+  .llave-process, .typologies-block, .brands-blurb { padding-left: 24px; padding-right: 24px; }
+  .dual-grid { grid-template-columns: 1fr; gap: 60px; }
+  .dual-col { padding: 0 !important; border-left: none !important; }
+  .system-row { grid-template-columns: 40px 1fr; row-gap: 12px; }
+  .system-row .sys-name { grid-column: 2; }
+  .system-row .sys-brands { grid-column: 2; }
+  .system-row .sys-desc { grid-column: 1 / -1; }
+  .typo-grid { grid-template-columns: repeat(2, 1fr); }
+  .typo-card { border-bottom: 1px solid var(--line); }
+  .lutron-band { grid-template-columns: 1fr; padding: 36px 24px; gap: 24px; }
+  .lutron-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+  .lutron-lines-grid { grid-template-columns: 1fr; }
+  .lutron-service-row { grid-template-columns: 40px 1fr; row-gap: 8px; }
+  .lutron-service-row .ls-name { grid-column: 2; }
+  .lutron-service-row .ls-desc { grid-column: 1 / -1; }
+  .lutron-why-grid { grid-template-columns: 1fr; gap: 16px; }
+  .llave-reasons-grid { grid-template-columns: 1fr; }
+  .llave-reason { border-right: none; border-bottom: 1px solid var(--line) !important; }
+  .llave-disc-grid { grid-template-columns: 1fr; }
+  .llave-lutron-band { grid-template-columns: 1fr; padding: 28px 24px; }
+  .llave-step { grid-template-columns: 60px 1fr; gap: 16px; }
+  .ls-num-roman { font-size: 24px; }
+  .brands-blurb p { font-size: 17px; }
   .project-detail .meta-grid { grid-template-columns: 1fr; gap: 40px; padding: 0 24px 60px; }
   .project-detail .gallery { padding: 60px 24px; grid-template-columns: 1fr; }
   .admin { padding: 100px 24px 60px; }

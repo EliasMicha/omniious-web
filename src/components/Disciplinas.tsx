@@ -16,8 +16,8 @@ export const DISCIPLINES: Discipline[] = [
     slug: '/iluminacion',
     name: 'Iluminación',
     nameAccent: 'arquitectónica',
-    tagline: 'Diseñamos la luz que define cada espacio. Conceptual, técnica, decorativa y custom.',
-    highlights: ['Diseño', 'Cálculos DiaLux', 'Decorativa', 'Luminarias custom', 'Importación'],
+    tagline: 'Diseño, decorativa, importación e instalación. Especificamos lo que cada proyecto necesita.',
+    highlights: ['Diseño', 'DiaLux', 'Decorativa', 'Suministro', 'Instalación'],
     meta: '01 / 03'
   },
   {
@@ -25,8 +25,8 @@ export const DISCIPLINES: Discipline[] = [
     slug: '/electrica',
     name: 'Ingeniería',
     nameAccent: 'eléctrica',
-    tagline: 'Instalaciones eléctricas calculadas con precisión. Desde el plano base hasta la puesta en marcha.',
-    highlights: ['Iluminación', 'Contactos', 'HVAC', 'Subestaciones MT/BT', 'Fotovoltaico', 'Emergencia'],
+    tagline: 'Diseño y ejecución de instalaciones eléctricas. De los planos al arranque, mismo equipo.',
+    highlights: ['Iluminación', 'Contactos', 'HVAC', 'Subestación', 'Fotovoltaico', 'Emergencia'],
     meta: '02 / 03'
   },
   {
@@ -34,8 +34,8 @@ export const DISCIPLINES: Discipline[] = [
     slug: '/instalaciones-especiales',
     name: 'Instalaciones',
     nameAccent: 'especiales',
-    tagline: 'Audio, redes, seguridad y automatización integrados con la arquitectura. Sin parches.',
-    highlights: ['Audio · AV', 'Redes', 'CCTV', 'Control de Acceso', 'BMS', 'Detección de Humo', 'Telefonía'],
+    tagline: 'Audio, redes, seguridad, control y automatización. Diseño, instalación y programación in-house.',
+    highlights: ['Audio · AV', 'Redes', 'CCTV', 'Acceso', 'Lutron', 'BMS', 'Detección', 'Cortinas'],
     meta: '03 / 03'
   }
 ];

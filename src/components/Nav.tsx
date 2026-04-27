@@ -23,7 +23,8 @@ export default function Nav() {
         <li><NavLink to="/iluminacion" className={({ isActive }) => isActive ? 'active' : ''}>Iluminación</NavLink></li>
         <li><NavLink to="/electrica" className={({ isActive }) => isActive ? 'active' : ''}>Eléctrica</NavLink></li>
         <li><NavLink to="/instalaciones-especiales" className={({ isActive }) => isActive ? 'active' : ''}>Especiales</NavLink></li>
-        <li><a href="/#proyectos">Proyectos</a></li>
+        <li><NavLink to="/lutron" className={({ isActive }) => isActive ? 'active' : ''}>Lutron</NavLink></li>
+        <li><NavLink to="/llave-en-mano" className={({ isActive }) => isActive ? 'active' : ''}>Llave en mano</NavLink></li>
         <li><a href="/#contacto">Contacto</a></li>
       </ul>
     </nav>

@@ -2,26 +2,40 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import Ficha from './Ficha';
-import Marcas from './Marcas';
 import Contacto from './Contacto';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import { supabase } from '../lib/supabase';
 import type { Project } from '../lib/types';
 
-export interface DisciplineService {
+export interface ServiceItem {
   name: string;
   desc: string;
 }
 
+export interface SystemItem {
+  anchor: string;       // 'audio' | 'redes' | etc — para deep-links
+  name: string;
+  brands: string;       // "Sonos · McIntosh · Nexo"
+  desc: string;
+  highlight?: {         // banda destacada (ej: Lutron link)
+    label: string;
+    href: string;
+  };
+}
+
 export interface DisciplineConfig {
-  slug: string;            // 'iluminacion' | 'electrica' | 'instalaciones-especiales'
-  eyebrow: string;         // "Disciplina I"
-  title: React.ReactNode;  // hero title with em
-  lead: string;            // párrafo bajo el título
-  scopeFilter: string;     // valor de scope[] en projects
-  services: DisciplineService[];
+  slug: string;
+  eyebrow: string;
+  title: React.ReactNode;
+  lead: string;
+  scopeFilter: string;
   whatsappMessage: string;
+  designServices: ServiceItem[];
+  implementationServices: ServiceItem[];
+  systems?: SystemItem[];        // solo /instalaciones-especiales
+  brandsBlurb?: string;          // texto discreto de marcas
+  typologies?: string[];         // tipologías que dominan (eléctrica)
   seo: {
     title: string;
     description: string;
@@ -56,7 +70,11 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
       '@type': 'Organization',
       name: 'OMNIIOUS',
       url: 'https://omniious.com',
-      address: { '@type': 'PostalAddress', addressLocality: 'Ciudad de México', addressCountry: 'MX' }
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Ciudad de México',
+        addressCountry: 'MX'
+      }
     },
     areaServed: { '@type': 'Country', name: 'Mexico' },
     description: config.seo.description
@@ -73,6 +91,7 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
       <Nav />
       <Ficha />
 
+      {/* HERO */}
       <section className="discipline-hero">
         <div>
           <div className="discipline-eyebrow">{config.eyebrow}</div>
@@ -80,50 +99,111 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
           <p className="discipline-lead">{config.lead}</p>
           <div className="discipline-cta-row">
             <a className="btn-primary" href={waHref} target="_blank" rel="noopener noreferrer">
-              Cotizar por WhatsApp <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>→</span>
+              Cotizar por WhatsApp
             </a>
-            <a className="btn-secondary" href="mailto:elias@omniious.com">
-              Escribir un correo
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-bottom" style={{ marginTop: 80 }}>
-          <div>
-            <div className="tag">Equipo</div>
-            <p>Un solo responsable por proyecto. Sin intermediarios entre el diseño y la obra.</p>
-          </div>
-          <div>
-            <div className="tag">Cobertura</div>
-            <p>Ciudad de México, Valle de Bravo, Cancún, Baja California — y donde tu obra requiera.</p>
-          </div>
-          <div className="scroll">
-            <span>Servicios</span>
-            <div className="scroll-line"></div>
+            <a className="btn-secondary" href="#diseno">Ver lo que hacemos</a>
           </div>
         </div>
       </section>
 
-      <section className="discipline-services" id="servicios">
-        <div className="section-header">
-          <div className="section-num">— Servicios</div>
-          <h2 className="section-title">Lo que <em>entregamos</em>.</h2>
+      {/* DUAL BLOCK — DISEÑO + IMPLEMENTACIÓN */}
+      <section className="dual-block" id="diseno">
+        <div className="dual-grid">
+          <div className="dual-col">
+            <div className="dual-eyebrow">— Diseño</div>
+            <h2 className="dual-title">Lo que <em>diseñamos</em>.</h2>
+            <ol className="dual-list">
+              {config.designServices.map((s, i) => (
+                <li key={s.name}>
+                  <span className="idx">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <div className="nm">{s.name}</div>
+                    <div className="ds">{s.desc}</div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="dual-col" id="implementacion">
+            <div className="dual-eyebrow">— Implementación</div>
+            <h2 className="dual-title">Lo que <em>ejecutamos</em>.</h2>
+            <ol className="dual-list">
+              {config.implementationServices.map((s, i) => (
+                <li key={s.name}>
+                  <span className="idx">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <div className="nm">{s.name}</div>
+                    <div className="ds">{s.desc}</div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
-        <div className="services-grid">
-          {config.services.map((s, i) => (
-            <div className="service-row" key={s.name}>
-              <div className="idx">{String(i + 1).padStart(2, '0')}</div>
-              <div className="nm">{s.name}</div>
-              <div className="ds">{s.desc}</div>
-            </div>
-          ))}
+
+        <div className="dual-foot">
+          <p>
+            Diseño se cobra por metro cuadrado de proyecto. Implementación depende de los equipos y el alcance.
+            Las dos cosas se pueden contratar juntas o por separado.
+          </p>
         </div>
       </section>
 
+      {/* SISTEMAS — solo si config.systems */}
+      {config.systems && config.systems.length > 0 && (
+        <section className="systems-block" id="sistemas">
+          <div className="section-header">
+            <div className="section-num">— Sistemas que dominamos</div>
+            <h2 className="section-title">Nueve <em>especialidades</em>.<br />Un solo equipo.</h2>
+          </div>
+          <div className="systems-list">
+            {config.systems.map((s, i) => (
+              <div className="system-row" id={s.anchor} key={s.anchor}>
+                <div className="sys-idx">{String(i + 1).padStart(2, '0')}</div>
+                <div className="sys-name">{s.name}</div>
+                <div className="sys-brands">{s.brands}</div>
+                <div className="sys-desc">
+                  {s.desc}
+                  {s.highlight && (
+                    <Link to={s.highlight.href} className="sys-hl">
+                      {s.highlight.label} <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>→</span>
+                    </Link>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* TIPOLOGÍAS — solo si config.typologies */}
+      {config.typologies && config.typologies.length > 0 && (
+        <section className="typologies-block">
+          <div className="section-header">
+            <div className="section-num">— Dónde nos buscan</div>
+            <h2 className="section-title">Tipologías que <em>dominamos</em>.</h2>
+          </div>
+          <div className="typo-grid">
+            {config.typologies.map(t => (
+              <div className="typo-card" key={t}>{t}</div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* BRANDS BLURB — texto discreto */}
+      {config.brandsBlurb && (
+        <section className="brands-blurb">
+          <p>{config.brandsBlurb}</p>
+        </section>
+      )}
+
+      {/* PROYECTOS */}
       <section id="proyectos">
         <div className="section-header">
           <div className="section-num">— Obras seleccionadas</div>
-          <h2 className="section-title">Proyectos en <em>{config.eyebrow.replace(/^Disciplina\s+\w+\s*—?\s*/i, '').toLowerCase()}</em>.</h2>
+          <h2 className="section-title">Donde lo hemos <em>construido</em>.</h2>
         </div>
 
         {loading ? (
@@ -160,7 +240,6 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
         )}
       </section>
 
-      <Marcas />
       <Contacto />
       <WhatsAppButton phone="525555011014" message={config.whatsappMessage} />
     </>
