@@ -25,13 +25,6 @@ export default function Contacto() {
               <a href="mailto:juanpablo@omniious.com">juanpablo@omniious.com</a>
             </div>
           </div>
-          <div className="contact-block">
-            <div className="role">Dirección de Instalaciones</div>
-            <div className="person">Manuel Casas</div>
-            <div className="detail">
-              <a href="mailto:manuel@omniious.com">manuel@omniious.com</a>
-            </div>
-          </div>
         </div>
       </div>
 
