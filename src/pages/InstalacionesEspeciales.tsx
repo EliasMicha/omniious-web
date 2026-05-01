@@ -6,7 +6,7 @@ const config: DisciplineConfig = {
   title: <>Cuando el espacio<br /><em>responde</em>.</>,
   lead: 'La mejor tecnología es la que desaparece en el espacio.',
   scopeFilter: 'especiales',
-  whatsappMessage: 'Hola Omniious, me interesa cotizar instalaciones especiales.',
+  whatsappMessage: 'Hola Omniious, soy [arquitecto / constructor / cliente]. Mi proyecto es [residencial / comercial / hotelero / corporativo] de aprox ___ m². Necesito [audio / redes / CCTV / acceso / control de iluminación / BMS / detección / telefonía / cortinas]. Me interesa cotizar.',
   seo: {
     title: 'Instalaciones Especiales CDMX — AV, Redes, CCTV, BMS | OMNIIOUS',
     description: 'Instalaciones especiales para arquitectura: audio, redes, CCTV, control de acceso, control de iluminación Lutron, BMS, detección de humo, telefonía, cortinas motorizadas.'

@@ -5,10 +5,12 @@ import Ficha from '../components/Ficha';
 import Contacto from '../components/Contacto';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Seo from '../components/Seo';
+import { organizationLd, serviceLd, breadcrumbLd, graphLd } from '../lib/seo';
+import { trackLead } from '../lib/analytics';
 import { supabase } from '../lib/supabase';
 import type { Project } from '../lib/types';
 
-const WA_MESSAGE = 'Hola Omniious, mi proyecto necesita ingeniería integral.';
+const WA_MESSAGE = 'Hola Omniious, soy [arquitecto / constructor / desarrollador / cliente final]. Tengo un proyecto [residencial / comercial / hotelero / corporativo] de aprox ___ m² en [ciudad], en etapa de [diseño / obra arrancando / obra en ejecución]. Me interesa cotizar ingeniería integral (iluminación + eléctrica + especiales).';
 const WA_HREF = `https://wa.me/525555011014?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 interface Reason {
@@ -60,13 +62,20 @@ export default function LlaveEnMano() {
     })();
   }, []);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Ingeniería integral llave en mano',
-    provider: { '@type': 'Organization', name: 'OMNIIOUS', url: 'https://omniious.com' },
-    description: 'Diseño e implementación integral de iluminación, ingeniería eléctrica e instalaciones especiales bajo un solo equipo.'
-  };
+  const url = 'https://omniious.com/llave-en-mano';
+  const jsonLd = graphLd(
+    organizationLd(),
+    serviceLd({
+      name: 'Ingeniería integral llave en mano para arquitectura',
+      description: 'Diseño e implementación integral de iluminación, ingeniería eléctrica e instalaciones especiales bajo un solo equipo. Para arquitectos, constructoras y desarrolladores.',
+      url,
+      serviceType: 'Llave en mano · Iluminación + Eléctrica + Especiales'
+    }),
+    breadcrumbLd([
+      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: 'Llave en mano', url }
+    ])
+  );
 
   return (
     <>
@@ -86,7 +95,13 @@ export default function LlaveEnMano() {
           <h1 className="discipline-title">Una sola conversación.<br />Un solo <em>responsable</em>.</h1>
           <p className="discipline-lead">Lo que normalmente requiere cinco contratistas, en OMM lo hace un solo equipo.</p>
           <div className="discipline-cta-row">
-            <a className="btn-primary" href={WA_HREF} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn-primary"
+              href={WA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackLead('whatsapp', '/llave-en-mano')}
+            >
               Hablemos del proyecto
             </a>
             <a className="btn-secondary" href="#disciplinas">Ver disciplinas</a>

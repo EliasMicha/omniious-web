@@ -1,14 +1,17 @@
 /**
- * Analytics loader — Google Tag Manager + Meta Pixel
+ * Analytics loader — Google Analytics 4 + Google Tag Manager + Meta Pixel
  *
- * Para activar:
+ * Para activar (cualquier combinación):
  * 1. Agregar a Vercel env vars:
- *    - VITE_GTM_ID=GTM-XXXXXXX        (de tagmanager.google.com)
- *    - VITE_META_PIXEL_ID=1234567890   (de business.facebook.com)
+ *    - VITE_GA4_ID=G-XXXXXXXXXX            (Measurement ID de GA4 — recomendado)
+ *    - VITE_GTM_ID=GTM-XXXXXXX             (Google Tag Manager — alternativa avanzada)
+ *    - VITE_META_PIXEL_ID=1234567890       (Meta Pixel para Facebook/IG ads)
+ *    - VITE_GOOGLE_SITE_VERIFICATION=xyz   (Search Console verification — opcional, mejor TXT en DNS)
  * 2. Redeploy. Los scripts se cargan automáticamente solo si las vars existen.
  *
  * Para track de eventos personalizados desde el código:
- *   import { track } from '@/lib/analytics';
+ *   import { track, trackLead } from '@/lib/analytics';
+ *   trackLead('whatsapp', 'lutron');
  *   track('cotizar_click', { disciplina: 'iluminacion' });
  */
 
@@ -21,10 +24,32 @@ declare global {
   }
 }
 
+const GA4_ID = import.meta.env.VITE_GA4_ID as string | undefined;
 const GTM_ID = import.meta.env.VITE_GTM_ID as string | undefined;
 const META_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 
 let initialized = false;
+
+function loadGA4(id: string) {
+  // gtag.js
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: any[]) {
+    window.dataLayer?.push(args);
+  }
+  // Hacer gtag disponible globalmente
+  (window as any).gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', id, {
+    send_page_view: true,
+    anonymize_ip: false
+  });
+}
 
 function loadGTM(id: string) {
   window.dataLayer = window.dataLayer || [];
@@ -73,6 +98,9 @@ export function initAnalytics() {
   if (initialized || typeof window === 'undefined') return;
   initialized = true;
 
+  if (GA4_ID && /^G-/.test(GA4_ID)) {
+    loadGA4(GA4_ID);
+  }
   if (GTM_ID && GTM_ID.startsWith('GTM-')) {
     loadGTM(GTM_ID);
   }
@@ -81,12 +109,41 @@ export function initAnalytics() {
   }
 }
 
+/**
+ * Evento genérico — push a GA4 y Meta.
+ */
 export function track(eventName: string, params: Record<string, any> = {}) {
+  // GA4 / GTM
+  window.gtag?.('event', eventName, params);
   window.dataLayer?.push({ event: eventName, ...params });
+  // Meta Pixel
   window.fbq?.('trackCustom', eventName, params);
 }
 
+/**
+ * Evento de lead — el más importante. Cualquier click a WhatsApp o email
+ * dispara una conversión que GA4 y Meta van a usar para optimizar.
+ */
+export function trackLead(channel: 'whatsapp' | 'email' | 'phone', source: string) {
+  const params = { channel, source };
+  // GA4 conversion event
+  window.gtag?.('event', 'generate_lead', {
+    currency: 'MXN',
+    value: 1, // valor placeholder, se ajusta en GA4 dashboard
+    ...params
+  });
+  // GTM dataLayer
+  window.dataLayer?.push({
+    event: 'lead',
+    lead_channel: channel,
+    lead_source: source
+  });
+  // Meta Pixel — evento estándar Lead
+  window.fbq?.('track', 'Lead', params);
+}
+
 export function trackPageView(path: string) {
+  window.gtag?.('event', 'page_view', { page_path: path });
   window.dataLayer?.push({ event: 'page_view', page_path: path });
   window.fbq?.('track', 'PageView');
 }

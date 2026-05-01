@@ -6,7 +6,7 @@ const config: DisciplineConfig = {
   title: <>La luz como <em>material</em><br />de arquitectura.</>,
   lead: 'Una iluminación bien hecha no se nota. Una mala, siempre.',
   scopeFilter: 'iluminacion',
-  whatsappMessage: 'Hola Omniious, me interesa cotizar iluminación arquitectónica.',
+  whatsappMessage: 'Hola Omniious, soy [arquitecto / despacho / cliente]. Mi proyecto es [residencial / comercial / hotelero / corporativo] de aprox ___ m² en [ciudad]. Me interesa cotizar [diseño / suministro / instalación] de iluminación arquitectónica.',
   seo: {
     title: 'Diseño de Iluminación Arquitectónica CDMX — OMNIIOUS',
     description: 'Diseño e implementación de iluminación arquitectónica para residencial, hotelería, corporativo y comercial. Mismo equipo, mismo responsable.'

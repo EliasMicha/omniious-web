@@ -6,6 +6,8 @@ import Contacto from './Contacto';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import { supabase } from '../lib/supabase';
+import { organizationLd, serviceLd, breadcrumbLd, graphLd } from '../lib/seo';
+import { trackLead } from '../lib/analytics';
 import type { Project } from '../lib/types';
 
 export interface ServiceItem {
@@ -62,23 +64,20 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
 
   const waHref = `https://wa.me/525555011014?text=${encodeURIComponent(config.whatsappMessage)}`;
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: config.seo.title,
-    provider: {
-      '@type': 'Organization',
-      name: 'OMNIIOUS',
-      url: 'https://omniious.com',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Ciudad de México',
-        addressCountry: 'MX'
-      }
-    },
-    areaServed: { '@type': 'Country', name: 'Mexico' },
-    description: config.seo.description
-  };
+  const url = `https://omniious.com/${config.slug}`;
+  const jsonLd = graphLd(
+    organizationLd(),
+    serviceLd({
+      name: config.seo.title,
+      description: config.seo.description,
+      url,
+      serviceType: config.eyebrow
+    }),
+    breadcrumbLd([
+      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: config.eyebrow, url }
+    ])
+  );
 
   return (
     <>
@@ -98,7 +97,13 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
           <h1 className="discipline-title">{config.title}</h1>
           <p className="discipline-lead">{config.lead}</p>
           <div className="discipline-cta-row">
-            <a className="btn-primary" href={waHref} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn-primary"
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackLead('whatsapp', `/${config.slug}`)}
+            >
               Cotizar por WhatsApp
             </a>
             <a className="btn-secondary" href="#diseno">Ver lo que hacemos</a>

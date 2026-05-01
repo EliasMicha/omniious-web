@@ -6,7 +6,7 @@ const config: DisciplineConfig = {
   title: <>Ingeniería eléctrica<br />de <em>precisión</em>.</>,
   lead: 'Una buena instalación eléctrica no se celebra. Una mala se sufre durante años.',
   scopeFilter: 'electrica',
-  whatsappMessage: 'Hola Omniious, me interesa cotizar ingeniería eléctrica.',
+  whatsappMessage: 'Hola Omniious, soy [arquitecto / constructor / desarrollador]. Mi proyecto es [residencial / oficinas / corporativo / comercial] de aprox ___ m² en [ciudad]. Me interesa cotizar [diseño / ejecución / ambos] de ingeniería eléctrica.',
   seo: {
     title: 'Ingeniería Eléctrica CDMX — Diseño y Ejecución | OMNIIOUS',
     description: 'Diseño de instalaciones eléctricas residenciales, comerciales y corporativas en Ciudad de México. Iluminación, contactos, HVAC, subestación, fotovoltaico y emergencia.'

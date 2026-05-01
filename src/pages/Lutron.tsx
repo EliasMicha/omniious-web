@@ -3,8 +3,10 @@ import Ficha from '../components/Ficha';
 import Contacto from '../components/Contacto';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Seo from '../components/Seo';
+import { organizationLd, serviceLd, breadcrumbLd, graphLd } from '../lib/seo';
+import { trackLead } from '../lib/analytics';
 
-const WA_MESSAGE = 'Hola Omniious, me interesa cotizar un sistema Lutron.';
+const WA_MESSAGE = 'Hola Omniious, soy [arquitecto / cliente]. Mi proyecto está [en diseño / en obra / casa terminada con problemas Lutron] en [ciudad]. Me interesa [HomeWorks / RA2 / Caséta / Athena / no estoy seguro cuál]. Cuéntenme.';
 const WA_HREF = `https://wa.me/525555011014?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 interface LutronLine {
@@ -63,18 +65,20 @@ const SERVICES = [
 ];
 
 export default function Lutron() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Integración de sistemas Lutron',
-    provider: {
-      '@type': 'Organization',
-      name: 'OMNIIOUS',
-      url: 'https://omniious.com'
-    },
-    areaServed: { '@type': 'Country', name: 'Mexico' },
-    description: 'Integrador certificado Lutron en México. Diseño, instalación y programación de HomeWorks, RA2, Caséta, Vive y Athena.'
-  };
+  const url = 'https://omniious.com/lutron';
+  const jsonLd = graphLd(
+    organizationLd(),
+    serviceLd({
+      name: 'Integrador Lutron certificado en México',
+      description: 'Diseño, suministro, instalación y programación de Lutron HomeWorks, RA2, Caséta, Vive y Athena. Programadores propios, no freelance.',
+      url,
+      serviceType: 'Lutron HomeWorks · RA2 · Athena · Caséta · Vive'
+    }),
+    breadcrumbLd([
+      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: 'Lutron', url }
+    ])
+  );
 
   return (
     <>
@@ -94,7 +98,13 @@ export default function Lutron() {
           <h1 className="discipline-title">El control de la luz,<br /><em>al detalle</em>.</h1>
           <p className="discipline-lead">Un sistema Lutron es tan bueno como quien lo programa.</p>
           <div className="discipline-cta-row">
-            <a className="btn-primary" href={WA_HREF} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn-primary"
+              href={WA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackLead('whatsapp', '/lutron')}
+            >
               Cotizar Lutron
             </a>
             <a className="btn-secondary" href="#lineas">Ver líneas Lutron</a>
