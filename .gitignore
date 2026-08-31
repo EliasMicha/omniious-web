@@ -11,3 +11,9 @@ dist
 dist-ssr
 node_modules
 node_modules/
+
+# temporales del prerender
+.vite-react-ssg-temp
+_dist_previo
+tsconfig.tsbuildinfo
+vite.config.ts.timestamp-*

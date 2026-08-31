@@ -62,7 +62,7 @@ export default function LlaveEnMano() {
     })();
   }, []);
 
-  const url = 'https://omniious.com/llave-en-mano';
+  const url = 'https://www.omniious.com/llave-en-mano';
   const jsonLd = graphLd(
     organizationLd(),
     serviceLd({
@@ -72,7 +72,7 @@ export default function LlaveEnMano() {
       serviceType: 'Llave en mano · Iluminación + Eléctrica + Especiales'
     }),
     breadcrumbLd([
-      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: 'OMNIIOUS', url: 'https://www.omniious.com' },
       { name: 'Llave en mano', url }
     ])
   );

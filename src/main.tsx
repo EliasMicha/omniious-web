@@ -1,16 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from './routes';
 import { initAnalytics } from './lib/analytics';
 import './styles/global.css';
 
-initAnalytics();
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+export const createRoot = ViteReactSSG(
+  { routes },
+  ({ isClient }) => {
+    // Analytics solo en el navegador: durante el prerender no hay window.
+    if (isClient) initAnalytics();
+  }
 );

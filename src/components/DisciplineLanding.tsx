@@ -64,7 +64,7 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
 
   const waHref = `https://wa.me/525555011014?text=${encodeURIComponent(config.whatsappMessage)}`;
 
-  const url = `https://omniious.com/${config.slug}`;
+  const url = `https://www.omniious.com/${config.slug}`;
   const jsonLd = graphLd(
     organizationLd(),
     serviceLd({
@@ -74,7 +74,7 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
       serviceType: config.eyebrow
     }),
     breadcrumbLd([
-      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: 'OMNIIOUS', url: 'https://www.omniious.com' },
       { name: config.eyebrow, url }
     ])
   );

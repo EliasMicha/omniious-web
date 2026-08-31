@@ -15,6 +15,8 @@
  *   track('cotizar_click', { disciplina: 'iluminacion' });
  */
 
+import { capturarAtribucion, obtenerAtribucion } from './attribution';
+
 declare global {
   interface Window {
     dataLayer?: any[];
@@ -98,6 +100,19 @@ export function initAnalytics() {
   if (initialized || typeof window === 'undefined') return;
   initialized = true;
 
+  // Se captura ANTES de cargar los scripts: el referrer original se pierde
+  // en cuanto el usuario navega, y mucho tráfico de IA llega sin él.
+  const attr = capturarAtribucion();
+  if (attr) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'atribucion',
+      canal: attr.canal,
+      motor_ia: attr.motor_ia ?? '(ninguno)',
+      landing_page: attr.landing_page
+    });
+  }
+
   if (GA4_ID && /^G-/.test(GA4_ID)) {
     loadGA4(GA4_ID);
   }
@@ -113,19 +128,32 @@ export function initAnalytics() {
  * Evento genérico — push a GA4 y Meta.
  */
 export function track(eventName: string, params: Record<string, any> = {}) {
-  // GA4 / GTM
-  window.gtag?.('event', eventName, params);
-  window.dataLayer?.push({ event: eventName, ...params });
-  // Meta Pixel
-  window.fbq?.('trackCustom', eventName, params);
+  const attr = obtenerAtribucion();
+  const conAtribucion = { ...params, canal: attr?.canal, motor_ia: attr?.motor_ia };
+  window.gtag?.('event', eventName, conAtribucion);
+  window.dataLayer?.push({ event: eventName, ...conAtribucion });
+  window.fbq?.('trackCustom', eventName, conAtribucion);
 }
 
 /**
  * Evento de lead — el más importante. Cualquier click a WhatsApp o email
  * dispara una conversión que GA4 y Meta van a usar para optimizar.
  */
-export function trackLead(channel: 'whatsapp' | 'email' | 'phone', source: string) {
-  const params = { channel, source };
+export function trackLead(
+  channel: 'whatsapp' | 'email' | 'phone' | 'formulario',
+  source: string,
+  servicio?: string
+) {
+  const attr = obtenerAtribucion();
+  const params = {
+    channel,
+    source,
+    // El servicio de origen es lo que permite contestar qué vertiente atrae más.
+    servicio_origen: servicio ?? source.replace(/^\//, '') ?? '(home)',
+    canal: attr?.canal,
+    motor_ia: attr?.motor_ia,
+    gclid: attr?.gclid
+  };
   // GA4 conversion event
   window.gtag?.('event', 'generate_lead', {
     currency: 'MXN',
@@ -136,7 +164,10 @@ export function trackLead(channel: 'whatsapp' | 'email' | 'phone', source: strin
   window.dataLayer?.push({
     event: 'lead',
     lead_channel: channel,
-    lead_source: source
+    lead_source: source,
+    servicio_origen: params.servicio_origen,
+    canal: attr?.canal,
+    motor_ia: attr?.motor_ia
   });
   // Meta Pixel — evento estándar Lead
   window.fbq?.('track', 'Lead', params);

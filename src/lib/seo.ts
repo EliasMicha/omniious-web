@@ -6,11 +6,11 @@
 export const ORG = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://omniious.com/#org',
+  '@id': 'https://www.omniious.com/#org',
   name: 'OMNIIOUS',
   legalName: 'OMM Technologies SA de CV',
-  url: 'https://omniious.com',
-  logo: 'https://omniious.com/favicon.svg',
+  url: 'https://www.omniious.com',
+  logo: 'https://www.omniious.com/favicon.svg',
   description:
     'Iluminación arquitectónica, ingeniería eléctrica e instalaciones especiales para proyectos residenciales, comerciales, corporativos y hoteleros. Una práctica integral en Ciudad de México.',
   foundingDate: '2019',
@@ -72,7 +72,7 @@ export function serviceLd(opts: {
     serviceType: opts.serviceType ?? opts.name,
     description: opts.description,
     url: opts.url,
-    provider: { '@id': 'https://omniious.com/#org' },
+    provider: { '@id': 'https://www.omniious.com/#org' },
     areaServed: [
       { '@type': 'City', name: 'Ciudad de México' },
       { '@type': 'City', name: 'Valle de Bravo' },

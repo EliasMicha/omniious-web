@@ -65,7 +65,7 @@ const SERVICES = [
 ];
 
 export default function Lutron() {
-  const url = 'https://omniious.com/lutron';
+  const url = 'https://www.omniious.com/lutron';
   const jsonLd = graphLd(
     organizationLd(),
     serviceLd({
@@ -75,7 +75,7 @@ export default function Lutron() {
       serviceType: 'Lutron HomeWorks · RA2 · Athena · Caséta · Vive'
     }),
     breadcrumbLd([
-      { name: 'OMNIIOUS', url: 'https://omniious.com' },
+      { name: 'OMNIIOUS', url: 'https://www.omniious.com' },
       { name: 'Lutron', url }
     ])
   );
