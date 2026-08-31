@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import Ficha from '../components/Ficha';
 import Contacto from '../components/Contacto';
+import LeadForm from '../components/LeadForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Seo from '../components/Seo';
 import { organizationLd, serviceLd, breadcrumbLd, graphLd } from '../lib/seo';
@@ -213,6 +214,14 @@ export default function LlaveEnMano() {
             ))}
           </div>
         )}
+      </section>
+
+      <section id="cotizar">
+        <LeadForm
+          servicioOrigen="llave-en-mano"
+          titulo="Cuéntanos del proyecto"
+          cta="Enviar"
+        />
       </section>
 
       <Contacto />

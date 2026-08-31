@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import Ficha from './Ficha';
 import Contacto from './Contacto';
+import LeadForm from './LeadForm';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import { supabase } from '../lib/supabase';
@@ -243,6 +244,14 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
             ))}
           </div>
         )}
+      </section>
+
+      <section id="cotizar">
+        <LeadForm
+          servicioOrigen={config.slug}
+          titulo="Cuéntanos del proyecto"
+          cta="Enviar"
+        />
       </section>
 
       <Contacto />

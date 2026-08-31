@@ -1,6 +1,7 @@
 import Nav from '../components/Nav';
 import Ficha from '../components/Ficha';
 import Contacto from '../components/Contacto';
+import LeadForm from '../components/LeadForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Seo from '../components/Seo';
 import { organizationLd, serviceLd, breadcrumbLd, graphLd } from '../lib/seo';
@@ -191,6 +192,14 @@ export default function Lutron() {
             <p>El cliente puede llamar a la misma firma que diseñó, instaló y programó. Sin pasarte de mano en mano cuando algo necesita ajuste.</p>
           </div>
         </div>
+      </section>
+
+      <section id="cotizar">
+        <LeadForm
+          servicioOrigen="lutron"
+          titulo="Cuéntanos del proyecto"
+          cta="Enviar"
+        />
       </section>
 
       <Contacto />
