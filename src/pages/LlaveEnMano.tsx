@@ -134,19 +134,19 @@ export default function LlaveEnMano() {
           <h2 className="section-title">Tres especialidades.<br /><em>Un</em> solo equipo.</h2>
         </div>
         <div className="llave-disc-grid">
-          <Link to="/iluminacion" className="llave-disc">
+          <Link reloadDocument to="/iluminacion" className="llave-disc">
             <div className="ld-num">I</div>
             <div className="ld-name">Iluminación arquitectónica</div>
             <p>Diseño, decorativa, custom, importación, instalación, programación.</p>
             <div className="ld-arrow">Ver disciplina <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>→</span></div>
           </Link>
-          <Link to="/electrica" className="llave-disc">
+          <Link reloadDocument to="/electrica" className="llave-disc">
             <div className="ld-num">II</div>
             <div className="ld-name">Ingeniería eléctrica</div>
             <p>Plano base, cálculos, subestación, fotovoltaico, emergencia, ejecución, UVIE.</p>
             <div className="ld-arrow">Ver disciplina <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>→</span></div>
           </Link>
-          <Link to="/instalaciones-especiales" className="llave-disc">
+          <Link reloadDocument to="/instalaciones-especiales" className="llave-disc">
             <div className="ld-num">III</div>
             <div className="ld-name">Instalaciones especiales</div>
             <p>Audio, redes, CCTV, acceso, control de iluminación, BMS, detección, telefonía, cortinas.</p>

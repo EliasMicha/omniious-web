@@ -15,14 +15,14 @@ export default function Nav() {
 
   return (
     <nav className="site-nav">
-      <Link to="/" className="logo">
+      <Link reloadDocument to="/" className="logo">
         <Logo />
         OMNIIOUS
       </Link>
       <ul>
-        <li><NavLink to="/iluminacion" className={({ isActive }) => isActive ? 'active' : ''}>Iluminación</NavLink></li>
-        <li><NavLink to="/electrica" className={({ isActive }) => isActive ? 'active' : ''}>Eléctrica</NavLink></li>
-        <li><NavLink to="/instalaciones-especiales" className={({ isActive }) => isActive ? 'active' : ''}>Especiales</NavLink></li>
+        <li><NavLink reloadDocument to="/iluminacion" className={({ isActive }) => isActive ? 'active' : ''}>Iluminación</NavLink></li>
+        <li><NavLink reloadDocument to="/electrica" className={({ isActive }) => isActive ? 'active' : ''}>Eléctrica</NavLink></li>
+        <li><NavLink reloadDocument to="/instalaciones-especiales" className={({ isActive }) => isActive ? 'active' : ''}>Especiales</NavLink></li>
         <li><NavLink to="/lutron" className={({ isActive }) => isActive ? 'active' : ''}>Lutron</NavLink></li>
         <li><NavLink to="/llave-en-mano" className={({ isActive }) => isActive ? 'active' : ''}>Llave en mano</NavLink></li>
         <li><a href="/#contacto">Contacto</a></li>

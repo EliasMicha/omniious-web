@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite-react-ssg dev",
-    "build": "tsc -b && vite-react-ssg build && node scripts/gen-static.mjs",
+    "build": "tsc -b && vite-react-ssg build && node scripts/gen-static.mjs && node scripts/publish-new-design.mjs",
     "preview": "vite preview",
     "lint": "tsc -b --noEmit",
     "build:spa": "tsc -b && vite build"

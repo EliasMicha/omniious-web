@@ -45,7 +45,7 @@ export default function ProjectDetail() {
           <h1 style={{ fontFamily: 'Fraunces, serif', fontSize: 64, fontWeight: 300, marginBottom: 24 }}>
             Proyecto no encontrado
           </h1>
-          <Link to="/" style={{ fontSize: 11, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--ink-soft)' }}>
+          <Link reloadDocument to="/" style={{ fontSize: 11, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--ink-soft)' }}>
             ← Volver al inicio
           </Link>
         </div>
@@ -64,7 +64,7 @@ export default function ProjectDetail() {
           }}
         />
 
-        <Link to="/#proyectos" className="back">← Todos los proyectos</Link>
+        <Link reloadDocument to="/#proyectos" className="back">← Todos los proyectos</Link>
 
         <div className="meta-grid">
           <div className="meta">

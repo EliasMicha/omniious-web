@@ -2,10 +2,56 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "omniious.com" }], "destination": "https://www.omniious.com/$1", "permanent": true }
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "omniious.com"
+        }
+      ],
+      "destination": "https://www.omniious.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-iluminacion",
+      "destination": "/iluminacion",
+      "permanent": false
+    },
+    {
+      "source": "/experiencia/diseno-iluminacion",
+      "destination": "/iluminacion",
+      "permanent": false
+    },
+    {
+      "source": "/ingenieria-electrica",
+      "destination": "/electrica",
+      "permanent": false
+    },
+    {
+      "source": "/experiencia/ingenieria-electrica",
+      "destination": "/electrica",
+      "permanent": false
+    },
+    {
+      "source": "/ingenieria-especiales",
+      "destination": "/instalaciones-especiales",
+      "permanent": false
+    },
+    {
+      "source": "/experiencia/ingenieria-especiales",
+      "destination": "/instalaciones-especiales",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/admin/:path*", "destination": "/index.html" },
-    { "source": "/proyectos/:slug", "destination": "/index.html" }
+    {
+      "source": "/admin/:path*",
+      "destination": "/app-shell.html"
+    },
+    {
+      "source": "/proyectos/:slug",
+      "destination": "/app-shell.html"
+    }
   ]
 }
