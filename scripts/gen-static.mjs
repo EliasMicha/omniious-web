@@ -10,6 +10,7 @@ const OUT = resolve('dist');
 
 const src = readFileSync(resolve('src/lib/static-routes.ts'), 'utf8');
 const routes = [...src.matchAll(/'(\/[^']*)'/g)].map(m => m[1]);
+routes.push('/experiencia', '/experiencia/diseno-iluminacion', '/experiencia/ingenieria-electrica', '/experiencia/ingenieria-especiales');
 const today = new Date().toISOString().slice(0, 10);
 const priority = (r) => (r === '/' ? '1.0' : '0.9');
 

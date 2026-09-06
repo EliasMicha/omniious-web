@@ -107,7 +107,8 @@ export default function DisciplineLanding({ config }: { config: DisciplineConfig
             >
               Cotizar por WhatsApp
             </a>
-            <a className="btn-secondary" href="#diseno">Ver lo que hacemos</a>
+            <a className="btn-secondary" href={`/experiencia/${config.slug === 'iluminacion' ? 'diseno-iluminacion' : config.slug === 'electrica' ? 'ingenieria-electrica' : 'ingenieria-especiales'}/`}>Explorar el proceso</a>
+            <a className="discipline-inpage-link" href="#diseno">Ver alcances ↓</a>
           </div>
         </div>
       </section>

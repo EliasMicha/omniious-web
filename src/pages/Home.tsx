@@ -1,6 +1,7 @@
 import Nav from '../components/Nav';
 import Ficha from '../components/Ficha';
 import Hero from '../components/Hero';
+import ExperienceGateway from '../components/ExperienceGateway';
 import Disciplinas from '../components/Disciplinas';
 import LutronBand from '../components/LutronBand';
 import Nosotros from '../components/Nosotros';
@@ -23,6 +24,7 @@ export default function Home() {
       <Nav />
       <Ficha />
       <Hero />
+      <ExperienceGateway />
       <Disciplinas />
       <LutronBand />
       <Nosotros />
