@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: { port: 5173, open: true },
   ssgOptions: {
-    script: 'async',
+    // Wait for the inline SSG manifest hash before hydrating the page.
+    script: 'defer',
     formatting: 'none',
     dirStyle: 'nested',
     // Solo se prerenderizan las rutas públicas estáticas.
