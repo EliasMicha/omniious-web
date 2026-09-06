@@ -6,7 +6,7 @@ const script = readFileSync(resolve(root,'app.js'),'utf8');
 const assets = [...new Set([...script.matchAll(/"(omniious-[^"\s]+\.(?:webp|svg))"/g)].map(m=>m[1]))];
 assert.equal(assets.length,35,'Five sectors must each retain 3 photos and 4 technology layers');
 for (const asset of assets) assert.ok(existsSync(resolve(root,'assets',asset)),asset);
-assert.equal(assets.filter(a=>a.endsWith('.svg')).length,20);
+assert.equal(assets.filter(a=>a.endsWith('.webp')).length,35, 'Use original photographic assets, including transparent technology layers');
 for(const route of ['index.html','diseno-iluminacion/index.html','ingenieria-electrica/index.html','ingenieria-especiales/index.html']) {
  const html=readFileSync(resolve(root,route),'utf8');
  const base=new URL(html.match(/<base href="([^"]+)"/)[1],'https://www.omniious.com');

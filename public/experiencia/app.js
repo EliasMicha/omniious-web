@@ -49,7 +49,7 @@ const sectors = {
     title: "Confort que no se ve.<br /><em>Se siente.</em>",
     description: "La arquitectura permanece limpia mientras luz, energía, seguridad, conectividad y control trabajan detrás.",
     priorities: ["Atmósfera y confort", "Automatización discreta", "Audio, seguridad y conectividad", "Operación sencilla"],
-    assets: ["omniious-residence-v3.webp", "omniious-xray-power-v6.webp", "omniious-xray-special-v6.webp", "omniious-residence-tech-audio-v3.svg", "omniious-residence-tech-network-v3.svg", "omniious-residence-tech-security-v3.svg", "omniious-residence-tech-shades-v3.svg"],
+    assets: ["omniious-residence-v3.webp", "omniious-xray-power-v6.webp", "omniious-xray-special-v6.webp", "omniious-residence-tech-audio-v2.webp", "omniious-residence-tech-network-v2.webp", "omniious-residence-tech-security-v2.webp", "omniious-residence-tech-shades-v2.webp"],
     chapters: [
       ["Caso 01 / Residencial", "Un proyecto.<br /><em>Un sistema.</em>", "Diseño de iluminación, proyecto técnico y ejecución coordinados desde el primer trazo hasta la puesta en marcha.", "El espacio comienza terminado · desliza para descubrir cómo se construye"],
       ["01 / Diseño de iluminación", "Primero,<br /><em>la luz.</em>", "Una disciplina estética y arquitectónica. Definimos qué debe aparecer, qué debe desaparecer y cómo se recorre el espacio.", "Acento · Plano vertical · Luz indirecta · Paisaje · 2700K"],
@@ -65,7 +65,7 @@ const sectors = {
     title: "La experiencia del huésped.<br /><em>La operación del hotel.</em>",
     description: "Cada habitación debe sentirse personal; el edificio completo debe poder operarse, medirse y mantenerse con precisión.",
     priorities: ["Habitaciones y áreas comunes", "Control y ahorro energético", "BMS y operación central", "Mantenimiento y continuidad"],
-    assets: ["omniious-hotel-v1.webp", "omniious-hotel-power-v1.webp", "omniious-hotel-special-v1.webp", "omniious-hotel-tech-audio-v3.svg", "omniious-hotel-tech-network-v3.svg", "omniious-hotel-tech-security-v3.svg", "omniious-hotel-tech-shades-v3.svg"],
+    assets: ["omniious-hotel-v1.webp", "omniious-hotel-power-v1.webp", "omniious-hotel-special-v1.webp", "omniious-hotel-tech-audio-v1.webp", "omniious-hotel-tech-network-v1.webp", "omniious-hotel-tech-security-v1.webp", "omniious-hotel-tech-shades-v1.webp"],
     chapters: [
       ["Caso 02 / Hotelería", "Un hotel.<br /><em>Una sola operación.</em>", "La experiencia del huésped y la operación del edificio se proyectan juntas, desde el lobby hasta cada habitación.", "El hotel comienza terminado · desliza para revelar su infraestructura"],
       ["01 / Diseño de iluminación", "La experiencia<br /><em>empieza con la luz.</em>", "Diseñamos atmósferas, recorridos y jerarquías para que habitaciones y áreas comunes tengan identidad propia.", "Lobby · Habitaciones · Restaurante · Fachada · Paisaje"],
@@ -81,7 +81,7 @@ const sectors = {
     title: "Espacios para trabajar.<br /><em>Infraestructura para crecer.</em>",
     description: "Luz, conectividad, colaboración y control se coordinan para acompañar la operación sin interrumpirla.",
     priorities: ["Iluminación de trabajo", "Redes y salas audiovisuales", "Acceso y seguridad", "Flexibilidad y continuidad"],
-    assets: ["omniious-office-v1.webp", "omniious-office-power-v1.webp", "omniious-office-special-v1.webp", "omniious-office-tech-audio-v3.svg", "omniious-office-tech-network-v3.svg", "omniious-office-tech-security-v3.svg", "omniious-office-tech-shades-v3.svg"],
+    assets: ["omniious-office-v1.webp", "omniious-office-power-v1.webp", "omniious-office-special-v1.webp", "omniious-office-tech-audio-v1.webp", "omniious-office-tech-network-v1.webp", "omniious-office-tech-security-v1.webp", "omniious-office-tech-shades-v1.webp"],
     chapters: [
       ["Caso 03 / Corporativo", "Una oficina.<br /><em>Una infraestructura.</em>", "El espacio de trabajo, la colaboración y la continuidad operativa se coordinan desde el proyecto.", "La oficina comienza terminada · desliza para revelar cómo funciona"],
       ["01 / Diseño de iluminación", "Luz para trabajar.<br /><em>Y para pertenecer.</em>", "Equilibramos confort visual, identidad y flexibilidad en áreas abiertas, salas, circulación y espacios ejecutivos.", "Trabajo · Reunión · Recepción · Circulación · Fachada"],
@@ -97,7 +97,7 @@ const sectors = {
     title: "La atmósfera vende.<br /><em>La operación sostiene.</em>",
     description: "En restaurantes y tiendas, la luz construye identidad mientras energía, audio, datos y seguridad mantienen el negocio funcionando.",
     priorities: ["Identidad y experiencia", "Escenas por horario", "Audio, datos y CCTV", "Operación de una o varias sedes"],
-    assets: ["omniious-restaurant-v1.webp", "omniious-restaurant-power-v1.webp", "omniious-restaurant-special-v1.webp", "omniious-restaurant-tech-audio-v3.svg", "omniious-restaurant-tech-network-v3.svg", "omniious-restaurant-tech-security-v3.svg", "omniious-restaurant-tech-shades-v3.svg"],
+    assets: ["omniious-restaurant-v1.webp", "omniious-restaurant-power-v1.webp", "omniious-restaurant-special-v1.webp", "omniious-restaurant-tech-audio-v1.webp", "omniious-restaurant-tech-network-v1.webp", "omniious-restaurant-tech-security-v1.webp", "omniious-restaurant-tech-shades-v1.webp"],
     chapters: [
       ["Caso 04 / Comercial", "Un restaurante.<br /><em>Una experiencia completa.</em>", "La atmósfera que ve el cliente y la infraestructura que sostiene la operación nacen del mismo proyecto.", "El restaurante comienza terminado · desliza para revelar cómo opera"],
       ["01 / Diseño de iluminación", "La atmósfera<br /><em>también se diseña.</em>", "La luz construye ritmo, intimidad e identidad sobre mesas, barra, arte, materiales y recorridos.", "Mesa · Barra · Producto · Arte · Fachada · 2200–2700K"],
@@ -113,7 +113,7 @@ const sectors = {
     title: "Muchas áreas.<br /><em>Una sola operación.</em>",
     description: "La infraestructura y los sistemas se proyectan desde la escala del edificio para operar como un conjunto coordinado.",
     priorities: ["Distribución y respaldo eléctrico", "BMS y medición", "Seguridad y áreas comunes", "Escalabilidad y soporte"],
-    assets: ["omniious-building-v1.webp", "omniious-building-power-v1.webp", "omniious-building-special-v1.webp", "omniious-building-tech-audio-v3.svg", "omniious-building-tech-network-v3.svg", "omniious-building-tech-security-v3.svg", "omniious-building-tech-shades-v3.svg"],
+    assets: ["omniious-building-v1.webp", "omniious-building-power-v1.webp", "omniious-building-special-v1.webp", "omniious-building-tech-audio-v1.webp", "omniious-building-tech-network-v1.webp", "omniious-building-tech-security-v1.webp", "omniious-building-tech-shades-v1.webp"],
     chapters: [
       ["Caso 05 / Edificios", "Un edificio.<br /><em>Una sola operación.</em>", "La infraestructura se proyecta a escala completa: acometida, áreas comunes, verticales, usuarios y operación central.", "El edificio comienza terminado · desliza para abrirlo por capas"],
       ["01 / Diseño de iluminación", "La arquitectura nocturna.<br /><em>Y el recorrido diario.</em>", "Diseñamos la presencia del edificio y la experiencia de lobby, circulaciones, amenidades y paisaje.", "Fachada · Lobby · Circulaciones · Amenidades · Paisaje"],
