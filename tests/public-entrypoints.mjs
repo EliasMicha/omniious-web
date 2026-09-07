@@ -15,3 +15,9 @@ for(const [,url] of home.matchAll(/(?:src|href)="(\/experiencia\/[^"?]+)(?:\?[^"
  if(/\.(css|js|webp)$/.test(url))assert.ok(existsSync('dist'+url),url);
 }
 console.log('PASS: new home, three direct service pages, image paths, canonicals, and preserved admin shell');
+
+const config=JSON.parse(readFileSync('vercel.json','utf8'));
+for(const rule of config.rewrites){
+ assert.ok(!config.cleanUrls || !rule.destination.endsWith('.html'),'Clean URL rewrite destinations must omit .html');
+ assert.ok(existsSync('dist'+rule.destination+'.html'));
+}

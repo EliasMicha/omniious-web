@@ -47,11 +47,11 @@
   "rewrites": [
     {
       "source": "/admin/:path*",
-      "destination": "/app-shell.html"
+      "destination": "/app-shell"
     },
     {
       "source": "/proyectos/:slug",
-      "destination": "/project-gallery.html"
+      "destination": "/project-gallery"
     }
   ]
 }
