@@ -55,3 +55,19 @@ await build({
   },
 });
 copyFileSync("src/static/admin.html", "dist/app-shell.html");
+// Keep a single persistent contact shortcut on every public/admin HTML entry.
+const {readdirSync}=await import('node:fs');
+const whatsapp=readFileSync('src/static/whatsapp.html','utf8');
+function addPersistentContact(directory){
+  for(const entry of readdirSync(directory,{withFileTypes:true})){
+    const path=`${directory}/${entry.name}`;
+    if(entry.isDirectory())addPersistentContact(path);
+    else if(entry.name.endsWith('.html')){
+      let html=readFileSync(path,'utf8');
+      if(!html.includes('href="/whatsapp.css'))html=html.replace('</head>','<link rel="stylesheet" href="/whatsapp.css?v=1" /></head>');
+      if(!/class="[^\"]*(?:whatsapp-btn|omniious-whatsapp)/.test(html))html=html.replace('</body>',whatsapp+'</body>');
+      writeFileSync(path,html);
+    }
+  }
+}
+addPersistentContact('dist');
