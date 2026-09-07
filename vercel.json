@@ -51,7 +51,7 @@
     },
     {
       "source": "/proyectos/:slug",
-      "destination": "/app-shell.html"
+      "destination": "/project-gallery.html"
     }
   ]
 }

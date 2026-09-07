@@ -10,7 +10,7 @@ for(const [route,type] of [['iluminacion','lighting'],['electrica','electrical']
  assert.ok(html.includes('class="brand" href="/"'));
  assert.equal((html.match(/class="service-chapter(?: |")/g)||[]).length,7);
 }
-assert.ok(readFileSync('dist/app-shell.html','utf8').includes('__VITE_REACT_SSG_HASH__'));
+assert.ok(readFileSync('dist/app-shell.html','utf8').includes('/admin-app.js'));
 for(const [,url] of home.matchAll(/(?:src|href)="(\/experiencia\/[^"?]+)(?:\?[^" ]*)?"/g)){
  if(/\.(css|js|webp)$/.test(url))assert.ok(existsSync('dist'+url),url);
 }

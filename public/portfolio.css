@@ -1,0 +1,239 @@
+.works-section,
+.work-page {
+  color: #ece9e2;
+  font-family: Sora, sans-serif;
+  background: #0b0e12;
+  padding: 100px 5vw;
+}
+.works-section .section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 45px;
+}
+.works-section h2,
+.work-heading h1 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 1;
+  margin: 15px 0;
+}
+.works-section a,
+.work-page a {
+  color: inherit;
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 45px 28px;
+}
+.work-card {
+  text-decoration: none;
+}
+.work-photo {
+  aspect-ratio: 4/3;
+  background: #1c2128;
+  overflow: hidden;
+}
+.work-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.work-card:hover img {
+  transform: scale(1.035);
+}
+.work-card:focus-visible {
+  outline: 2px solid #ece9e2;
+  outline-offset: 6px;
+}
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #aeb0b4;
+  margin: 18px 0 9px;
+}
+.work-card h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.work-card h3 span {
+  color: #aeb0b4;
+}
+.work-kicker,
+.work-count {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #aeb0b4;
+}
+.work-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 45px 0 28px;
+}
+.work-filters button,
+.work-retry {
+  background: transparent;
+  color: #ece9e2;
+  border: 1px solid #50545a;
+  padding: 12px 17px;
+  border-radius: 0;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.work-filters button[aria-pressed="true"] {
+  background: #ece9e2;
+  color: #0b0e12;
+}
+.work-page {
+  min-height: 80vh;
+  padding-top: 145px;
+}
+.work-back {
+  display: inline-block;
+  margin: 20px 0 40px;
+  font-size: 13px;
+  text-underline-offset: 6px;
+}
+.work-cover {
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #14181e;
+}
+.work-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 8vw;
+  padding: 60px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.work-info p {
+  max-width: 650px;
+}
+.work-info dl {
+  margin: 0;
+}
+.work-info dt {
+  color: #aeb0b4;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+}
+.work-info dd {
+  margin: 0 0 20px;
+}
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.work-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.work-scope {
+  color: #aeb0b4;
+}
+.work-heading {
+  margin-bottom: 45px;
+}
+.work-page-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 5vw;
+  gap: 24px;
+  font:
+    12px Sora,
+    sans-serif;
+  letter-spacing: 0.15em;
+}
+.work-page-nav a {
+  color: #ece9e2;
+  text-decoration: none;
+}
+.work-page-nav strong {
+  letter-spacing: 0.3em;
+}
+.works-section .section-head > a {
+  font-size: 13px;
+  text-underline-offset: 6px;
+}
+.work-footer {
+  padding: 35px 5vw;
+  background: #0b0e12;
+  color: #aeb0b4;
+  font:
+    11px Sora,
+    sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+.work-footer a {
+  color: inherit;
+}
+@media (max-width: 800px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .works-section,
+  .work-page {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  .work-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .works-section .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  .work-grid,
+  .work-gallery {
+    grid-template-columns: 1fr;
+  }
+  .works-section {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+  .work-card h3 {
+    font-size: 23px;
+  }
+  .work-page-nav {
+    font-size: 10px;
+  }
+  .work-filters {
+    gap: 7px;
+  }
+  .work-filters button {
+    padding: 10px 12px;
+  }
+  .work-heading h1 {
+    font-size: 52px;
+  }
+}
+
+.portfolio-footer-links nav{display:flex;gap:20px;margin-top:10px}.portfolio-footer-links nav a{color:inherit;font:11px Sora,sans-serif;text-underline-offset:4px}

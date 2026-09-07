@@ -1,0 +1,255 @@
+.works-admin {
+  min-height: 100vh;
+  background: #0b0e12;
+  color: #eeece6;
+  font-family: Arial, sans-serif;
+}
+.works-admin * {
+  box-sizing: border-box;
+}
+.works-admin a {
+  color: inherit;
+}
+.admin-top {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  padding: 24px 5vw;
+  border-bottom: 1px solid #30353c;
+}
+.admin-top > a:first-child {
+  font-size: 20px;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  margin-right: auto;
+}
+.works-admin main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 50px 5vw 100px;
+}
+.admin-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+.admin-title p {
+  color: #a7abb2;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.works-admin h1 {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.works-admin h2 {
+  font-size: 21px;
+  font-weight: 400;
+}
+.works-admin p {
+  line-height: 1.6;
+}
+.works-admin button {
+  font: inherit;
+  font-size: 13px;
+  background: #e9e5dc;
+  color: #0b0e12;
+  padding: 12px 18px;
+  border: 1px solid #e9e5dc;
+  cursor: pointer;
+}
+.works-admin button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+.works-admin button.secondary,
+.admin-top button {
+  background: transparent;
+  color: #eeece6;
+}
+.works-admin label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 13px;
+}
+.works-admin input,
+.works-admin select,
+.works-admin textarea {
+  font: inherit;
+  font-size: 15px;
+  padding: 13px;
+  background: #171c23;
+  color: #eeece6;
+  border: 1px solid #545a62;
+  border-radius: 0;
+  width: 100%;
+  line-height: 1.5;
+}
+.works-admin textarea {
+  resize: vertical;
+}
+.works-admin small {
+  color: #a7abb2;
+  line-height: 1.5;
+}
+.works-admin :focus-visible {
+  outline: 2px solid #e7cf99;
+  outline-offset: 3px;
+}
+.admin-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.admin-fields .wide {
+  grid-column: 1/-1;
+}
+.works-admin fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.admin-photos {
+  padding: 25px 0;
+}
+.admin-cover {
+  width: 100%;
+  max-width: 440px;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+  margin: 20px 0;
+  background: #171c23;
+}
+.admin-upload {
+  padding: 25px;
+  border: 1px dashed #737982;
+  max-width: 640px;
+}
+.admin-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+.admin-gallery img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.admin-gallery article > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+.admin-gallery button {
+  padding: 7px;
+  font-size: 11px;
+}
+.admin-actions {
+  position: sticky;
+  bottom: 0;
+  background: #0b0e12;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+.admin-list article {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 20px 0;
+  border-top: 1px solid #30353c;
+}
+.admin-list article > div {
+  flex: 1;
+}
+.admin-list img {
+  width: 115px;
+  height: 85px;
+  object-fit: cover;
+}
+.admin-list h2 {
+  margin: 0;
+}
+.admin-list p {
+  font-size: 13px;
+  color: #a7abb2;
+  margin: 8px 0;
+}
+.admin-search {
+  max-width: 500px;
+  margin: 25px 0;
+}
+.admin-error,
+.admin-success {
+  padding: 16px;
+  border: 1px solid #966;
+  color: #ffcece;
+  overflow-wrap: anywhere;
+}
+.admin-success {
+  border-color: #486c5b;
+  color: #bce7cd;
+}
+.admin-login {
+  max-width: 430px;
+  margin: 60px auto;
+}
+.admin-login label {
+  margin-bottom: 24px;
+}
+.admin-login button {
+  width: 100%;
+}
+@media (max-width: 650px) {
+  .admin-fields,
+  .admin-gallery {
+    grid-template-columns: 1fr;
+  }
+  .admin-top {
+    gap: 14px;
+  }
+  .admin-top a {
+    font-size: 12px;
+  }
+  .admin-top > a:first-child {
+    font-size: 14px;
+  }
+  .works-admin h1 {
+    font-size: 37px;
+  }
+  .admin-title {
+    align-items: start;
+    flex-direction: column;
+  }
+  .admin-list img {
+    width: 75px;
+    height: 70px;
+  }
+  .admin-list article {
+    gap: 12px;
+  }
+  .admin-list button {
+    padding: 9px;
+  }
+  .admin-list h2 {
+    font-size: 17px;
+  }
+  .admin-actions {
+    flex-wrap: wrap;
+  }
+  .admin-gallery img {
+    height: 230px;
+  }
+}

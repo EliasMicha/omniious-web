@@ -1,65 +1,92 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Nav from '../components/Nav';
-import { supabase } from '../lib/supabase';
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
+import "./admin.css";
 export default function AdminLogin() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    (async () => {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) navigate('/admin/panel', { replace: true });
-    })();
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        if (data.session) navigate("/admin/panel", { replace: true });
+      })
+      .catch(() =>
+        setError("No se pudo comprobar la sesión. Intenta entrar de nuevo."),
+      );
   }, [navigate]);
-
-  async function onSubmit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
-    setError(null);
+    setError("");
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      setError(error.message);
-      return;
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      if (error) throw error;
+      navigate("/admin/panel", { replace: true });
+    } catch {
+      setError(
+        "No pudimos iniciar sesión. Revisa tu correo y contraseña e intenta de nuevo.",
+      );
+    } finally {
+      setLoading(false);
     }
-    navigate('/admin/panel', { replace: true });
   }
-
   return (
-    <>
-      <Nav />
-      <div className="admin">
-        <div className="login-card">
-          <h1 style={{ fontSize: 28, marginBottom: 24 }}>Admin</h1>
-          {error && <div className="error">{error}</div>}
-          <form onSubmit={onSubmit}>
-            <label>Email</label>
-            <input
-              type="email"
-              required
-              autoComplete="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <label>Contraseña</label>
-            <input
-              type="password"
-              required
-              autoComplete="current-password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? 'Entrando…' : 'Entrar'}
+    <div className="works-admin">
+      <header className="admin-top">
+        <a href="/">OMNIIOUS</a>
+        <a href="/proyectos">Ver obras ↗</a>
+      </header>
+      <main>
+        <div className="admin-login">
+          <p>Administración de obras</p>
+          <h1>
+            Tu portafolio,
+            <br />
+            en tus manos.
+          </h1>
+          <p>
+            Sube fotos, actualiza tus proyectos y decide qué mostrar en la
+            página.
+          </p>
+          {error && (
+            <p className="admin-error" role="alert">
+              {error}
+            </p>
+          )}
+          <form onSubmit={submit}>
+            <label>
+              Correo electrónico
+              <input
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            <label>
+              Contraseña
+              <input
+                type="password"
+                required
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <button disabled={loading}>
+              {loading ? "Entrando…" : "Entrar"}
             </button>
           </form>
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
