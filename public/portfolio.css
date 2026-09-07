@@ -236,4 +236,31 @@
   }
 }
 
-.portfolio-footer-links nav{display:flex;gap:20px;margin-top:10px}.portfolio-footer-links nav a{color:inherit;font:11px Sora,sans-serif;text-underline-offset:4px}
+.portfolio-footer-links nav {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.portfolio-footer-links nav a {
+  color: inherit;
+  font:
+    11px Sora,
+    sans-serif;
+  text-underline-offset: 4px;
+}
+
+/* Consistent previews; the linked image retains its full composition. */
+.work-gallery a {
+  display: block;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #14181e;
+}
+.work-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.work-photo img {
+  display: block;
+}

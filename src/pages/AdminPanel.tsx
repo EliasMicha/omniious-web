@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import type { Project, ProjectCategory } from "../lib/types";
 import "./admin.css";
+import { prepareProjectImage } from "../lib/project-images";
 const CATEGORIES: Record<ProjectCategory, string> = {
   residencial: "Residencial",
   comercial: "Comercial",
@@ -119,8 +120,10 @@ export default function AdminPanel() {
         );
         return;
       }
-      if (f.size > 10 * 1024 * 1024) {
-        setError(`${f.name} supera el límite de 10 MB.`);
+      if (f.size > (f.type === "image/gif" ? 10 : 30) * 1024 * 1024) {
+        setError(
+          `${f.name} supera el límite de ${f.type === "image/gif" ? 10 : 30} MB.`,
+        );
         return;
       }
     }
@@ -128,7 +131,9 @@ export default function AdminPanel() {
     setBusy(true);
     let completed = 0;
     try {
-      for (const [i, file] of files.entries()) {
+      for (const [i, original] of files.entries()) {
+        setProgress(`Preparando foto ${i + 1} de ${files.length}…`);
+        const file = await prepareProjectImage(original);
         setProgress(`Subiendo foto ${i + 1} de ${files.length}…`);
         const ext = (
           {
@@ -430,7 +435,10 @@ export default function AdminPanel() {
               </div>
               <section className="admin-photos">
                 <h2>Foto de portada</h2>
-                <p>JPG, PNG, WebP o GIF. Hasta 10 MB por foto.</p>
+                <p>
+                  JPG, PNG o WebP: hasta 30 MB. Optimizamos las fotos al
+                  subirlas, sin deformarlas. GIF: hasta 10 MB.
+                </p>
                 {editing.cover_image_url && (
                   <img
                     className="admin-cover"

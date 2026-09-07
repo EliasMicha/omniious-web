@@ -253,3 +253,9 @@
     height: 230px;
   }
 }
+
+.works-admin .admin-gallery img {
+  aspect-ratio: 4/3;
+  height: auto;
+  object-fit: cover;
+}
